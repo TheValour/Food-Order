@@ -13,10 +13,10 @@ export default function Header() {
   return (
     <div className='flex-box justify-between px-10 bg-blue-100'>
         <span className='flex-box'>
-            <img src={logoImg} alt="logoImg" 
-                className='w-20 h-20 mx-3'
-            />
-            <span className=''>FooD-CarT</span>
+          <img src={logoImg} alt="logoImg" 
+            className='w-20 h-20 mx-3'
+          />
+          <span className=''>FooD-CarT</span>
         </span>
         <button onClick={openHandle}>Cart</button>
         {createPortal(<CartModel ref={modalRef} />, document.getElementById('modal'))}

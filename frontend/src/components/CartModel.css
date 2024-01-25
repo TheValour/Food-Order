@@ -40,7 +40,7 @@
     text-align: right;
   }
   
-  .result-modal button {
+  .result-modal > div > button {
     margin-top: 1rem;
     padding: 0.5rem 1rem;
     border: none;
@@ -51,6 +51,6 @@
     cursor: pointer;
   }
   
-  .result-modal button:hover {
+  .result-modal > div > button:hover {
     background: #051715;
   }

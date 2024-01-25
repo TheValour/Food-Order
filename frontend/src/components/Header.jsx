@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { createPortal } from "react-dom";
 import CartModel from './CartModel'
-import logoImg from '/images/logo.jpg'
+import logoImg from '/images/logo2.png'
 
 export default function Header() {
   const modalRef = useRef();

@@ -6,7 +6,7 @@ import { OrderContextProvider } from './context/OrderContext'
 export default function App() {
   return (
     <OrderContextProvider>
-      <div className=''>
+      <div >
         <Header/>
         <Hero/>
       </div>

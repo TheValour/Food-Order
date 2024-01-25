@@ -11,12 +11,12 @@ export default function Header() {
   }
 
   return (
-    <div className='flex-box justify-between px-10 bg-blue-100'>
+    <div className='flex-box justify-between px-10 bg-black text-white opacity-90'>
         <span className='flex-box'>
           <img src={logoImg} alt="logoImg" 
-            className='w-20 h-20 mx-3'
+            className='w-20 h-20 mx-2'
           />
-          <span className=''>FooD-CarT</span>
+          <span id='font-style' className=' text-2xl font-bold'>FOOD-CART</span>
         </span>
         <button onClick={openHandle}>Cart</button>
         {createPortal(<CartModel ref={modalRef} />, document.getElementById('modal'))}

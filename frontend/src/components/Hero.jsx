@@ -12,7 +12,7 @@ export default function Hero() {
     }, []);
 
   return (
-    <div className='grid grid-cols-3 gap-5'>
+    <div className='p-6 bg-gray-200 grid grid-cols-3 gap-2'>
       {items.map(((item) => <ItemCard item={item} key={item.id}/>))}
     </div>
   )

@@ -33,7 +33,7 @@ const CartModel = forwardRef(function CartModel(props, ref) {
         </div>
         <div className='flex-box justify-between'>
           <button onClick={closeHandler}  className='bg-red-200 p-2'>close</button>
-          <button className='bg-red-200 p-2' onClick={setFlagHandler}>Order</button>
+          <button onClick={setFlagHandler}>Order</button>
         </div>
       </>
       }

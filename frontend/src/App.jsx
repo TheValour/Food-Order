@@ -1,7 +1,12 @@
 import React from 'react'
+import Header from './components/Header'
+import Hero from './components/Hero'
 
 export default function App() {
   return (
-    <div className='bg-red-100'>App</div>
+    <div className=''>
+      <Header/>
+      <Hero/>
+    </div>
   )
 }

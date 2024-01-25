@@ -1,8 +1,15 @@
-import React from 'react'
-import Cart from './Cart'
+import React, { useRef } from 'react'
+import { createPortal } from "react-dom";
+import CartModel from './CartModel'
 import logoImg from '/images/logo.jpg'
 
 export default function Header() {
+  const modalRef = useRef();
+  function openHandle(){
+    // console.log(modalRef.current)
+    modalRef.current.showModal();
+  }
+
   return (
     <div className='flex-box justify-between px-10 bg-blue-100'>
         <span className='flex-box'>
@@ -11,7 +18,8 @@ export default function Header() {
             />
             <span className=''>FooD-CarT</span>
         </span>
-        <Cart/>
+        <button onClick={openHandle}>Cart</button>
+        {createPortal(<CartModel ref={modalRef} />, document.getElementById('modal'))}
     </div>
   )
 }

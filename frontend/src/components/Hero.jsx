@@ -6,14 +6,14 @@ export default function Hero() {
     const [items, setItems] = useState([]);
 
     useEffect(()=> {
-        axios.get('http://localhost:3000/meals').then((response) => {
-            setItems(response.data);
-          });
+      axios.get('http://localhost:3000/meals').then((response) => {
+        setItems(response.data);
+      });
     }, []);
 
   return (
-    <div>
-        {items.map(((item) => <ItemCard item={item} key={item.id}/>))}
+    <div className='grid grid-cols-3 gap-5'>
+      {items.map(((item) => <ItemCard item={item} key={item.id}/>))}
     </div>
   )
 }

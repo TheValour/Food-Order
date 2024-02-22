@@ -28,7 +28,7 @@ const CartModel = forwardRef(function CartModel(props, ref) {
       (orderFlag) ? <Form closeModal={closeHandler} setOrderFlag={setOrderFlag}/> :
       <>
         <div>
-          {order.map((ele) => <OrderItem item={ele}/>)}
+          {order.map((ele) => <OrderItem item={ele} key={ele.id}/>)}
           <span className='bg-blue-300 w-full block p-2'>Total Price : {totalPrice}</span>
         </div>
         <div className='flex-box justify-between'>

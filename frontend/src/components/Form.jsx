@@ -4,7 +4,7 @@ import axios from 'axios';
 import { OrderContext } from '../context/OrderContext';
 
 const Form = ({setOrderFlag, closeModal}) => {
-    const {order} = useContext(OrderContext);
+  const {order, clearOrderContext} = useContext(OrderContext);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -26,8 +26,10 @@ const Form = ({setOrderFlag, closeModal}) => {
     e.preventDefault();
     const finalOrder ={"order" :{"items" : {...order}, "customer" : {...formData}}}
     console.log(finalOrder);
-    //setFormData({ name: '', email: '', pincode: '', city: '', street: '' })
+    setFormData({ name: '', email: '', pincode: '', city: '', street: '' })
     handleFormSubmit(finalOrder);
+    setOrderFlag(false)
+    clearOrderContext();
     closeModal();
   };
 

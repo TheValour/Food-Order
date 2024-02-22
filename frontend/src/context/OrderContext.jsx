@@ -4,10 +4,11 @@ const OrderContext = createContext([]);
 
 const OrderContextProvider = ({ children }) => {
   const [order, setOrder] = useState([]);
+  const [totalOrder, setTotalOrder] = useState(0);
 
   const addItem = (item) => {
     const itemIndex = order.findIndex((existingItem) => existingItem.id === item.id);
-
+    setTotalOrder((pre) => pre + 1);
     if (itemIndex !== -1) {
       const updatedItems = [...order];
       updatedItems[itemIndex].frequency += 1;
@@ -16,9 +17,10 @@ const OrderContextProvider = ({ children }) => {
       setOrder((prevItems) => [...prevItems, { ...item, frequency: 1 }]);
     }
   };
-
+  
   const removeItem = (itemId) => {
     const itemIndex = order.findIndex((existingItem) => existingItem.id === itemId);
+    setTotalOrder((pre) => pre - 1);
     
     if (itemIndex !== -1) {
       const updatedItems = [...order];
@@ -30,9 +32,13 @@ const OrderContextProvider = ({ children }) => {
       setOrder(updatedItems);
     }
   };
+  const clearOrderContext = () => {
+    setOrder([]);
+    setTotalOrder(0);
+  }
 
   return (
-    <OrderContext.Provider value={{ order, addItem, removeItem }}>
+    <OrderContext.Provider value={{ order, addItem, removeItem, clearOrderContext, totalOrder }}>
       {children}
     </OrderContext.Provider>
   );

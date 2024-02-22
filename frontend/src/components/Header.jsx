@@ -1,9 +1,11 @@
-import React, { useRef } from 'react'
+import React, { useContext, useRef } from 'react'
 import { createPortal } from "react-dom";
 import CartModel from './CartModel'
 import logoImg from '/images/logo2.png'
+import { OrderContext } from '../context/OrderContext';
 
 export default function Header() {
+  const {totalOrder} = useContext(OrderContext);
   const modalRef = useRef();
   function openHandle(){
     // console.log(modalRef.current)
@@ -18,7 +20,7 @@ export default function Header() {
           />
           <span id='font-style' className=' text-2xl font-bold'>FOOD-CART</span>
         </span>
-        <button onClick={openHandle}>Cart</button>
+        <button onClick={openHandle}>Cart {totalOrder?totalOrder:""}</button>
         {createPortal(<CartModel ref={modalRef} />, document.getElementById('modal'))}
     </div>
   )

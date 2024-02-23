@@ -20,7 +20,7 @@ export default function Header() {
           />
           <span id='font-style' className=' text-2xl font-bold'>FOOD-CART</span>
         </span>
-        <button onClick={openHandle}>Cart {totalOrder?totalOrder:""}</button>
+        <button onClick={openHandle} className='text-2xl'>Cart <sup className='text-yellow-300'>{totalOrder?"+" + totalOrder:""}</sup></button>
         {createPortal(<CartModel ref={modalRef} />, document.getElementById('modal'))}
     </div>
   )

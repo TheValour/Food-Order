@@ -29,10 +29,10 @@ const CartModel = forwardRef(function CartModel(props, ref) {
       <>
         <div>
           {order.map((ele) => <OrderItem item={ele} key={ele.id}/>)}
-          <span className='bg-blue-300 w-full block p-2'>Total Price : {totalPrice}</span>
+          <span className='bg-blue-300 rounded block p-2 mx-2 font-medium'>Total Price :<span className=' font-normal'> {totalPrice} $</span></span>
         </div>
         <div className='flex-box justify-between'>
-          <button onClick={closeHandler}  className='bg-red-200 p-2'>close</button>
+          <button onClick={closeHandler}  className='bg-red-200 p-2'>Close</button>
           <button onClick={setFlagHandler}>Order</button>
         </div>
       </>

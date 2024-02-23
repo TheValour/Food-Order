@@ -5,7 +5,7 @@ export default function OrderItem({item}) {
     const {addItem, removeItem}= useContext(OrderContext);
 
   return (
-    <div className='flex-box justify-between bg-slate-300 m-2 p-2'>
+    <div className='flex-box justify-between bg-slate-300 m-2 p-2 rounded'>
         <span >{item.name}</span>
         <span>{item.frequency * item.price}</span>
         <div>

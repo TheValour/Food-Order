@@ -1,9 +1,12 @@
 import React, { useContext } from 'react'
 import { OrderContext } from '../context/OrderContext';
+import { toast } from 'react-toastify';
 
 export default function ItemCard({item}) {
   const {addItem} = useContext(OrderContext);
-
+  function onClickHandler() {
+    addItem({name:item.name, id:item.id, price:item.price});
+  }
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-md" >
       <img className="w-full" src={item.image} alt={item.name} />
@@ -17,7 +20,7 @@ export default function ItemCard({item}) {
           </span>
           
           <button className='bg-green-500 text-white p-2 rounded-lg' 
-            onClick={() => addItem({name:item.name, id:item.id, price:item.price})}
+            onClick={onClickHandler}
           >
             Add to Cart
           </button>

@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react';
-import axios from 'axios';
+import { doc, setDoc } from "firebase/firestore"; 
+import { db } from '../firebase/firebase';
+import { v4 as uuidv4 } from 'uuid';
 
 import { OrderContext } from '../context/OrderContext';
 
@@ -24,7 +26,7 @@ const Form = ({setOrderFlag, closeModal}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const finalOrder ={"order" :{"items" : {...order}, "customer" : {...formData}}}
+    const finalOrder ={"items" : {...order}, "customer" : {...formData}}
     console.log(finalOrder);
     setFormData({ name: '', email: '', pincode: '', city: '', street: '' })
     handleFormSubmit(finalOrder);
@@ -35,8 +37,7 @@ const Form = ({setOrderFlag, closeModal}) => {
 
   const handleFormSubmit = async (postData) => {
     try {
-      const response = await axios.post('http://localhost:3000/orders', postData);
-      console.log('Response:', response.data);
+      await setDoc(doc(db, "users", uuidv4()), postData);
     } catch (error) {
       console.error('Error:', error.message);
     }

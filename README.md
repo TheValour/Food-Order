@@ -27,7 +27,7 @@ git clone https://github.com/your-username/react-food-ordering-app.git
 2. Navigate into the project directory:
 
 ```
-cd react-food-ordering-app
+cd food-order
 ```
 
 3. Install dependencies:
@@ -86,5 +86,3 @@ Contributions are welcome! If you have any improvements or features to add, feel
 
 This project is licensed under the [MIT License](LICENSE).
 ```
-
-This README provides a basic overview of the project, its features, installation instructions, folder structure, and guidelines for contributing. Make sure to replace placeholders like `your-username` and customize the Firebase setup based on your project's requirements.

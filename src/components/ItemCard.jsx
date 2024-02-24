@@ -6,6 +6,12 @@ export default function ItemCard({item}) {
   const {addItem} = useContext(OrderContext);
   function onClickHandler() {
     addItem({name:item.name, id:item.id, price:item.price});
+    toast('Added to cart', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+    });
   }
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-md" >
